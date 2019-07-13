@@ -18,9 +18,9 @@ class DiscordColor(object):
 def saveJSON(file, data, encoder = None):
     with open(file, 'w') as outfile:
         json.dump(data, outfile, cls=encoder, indent=4)
-def loadJSON(file):
+def loadJSON(file, default):
     if not path.isfile(file):
-        return dict()
+        return default
     with open(file) as json_file:
         return json.load(json_file)
 
@@ -52,8 +52,8 @@ class VRCMNWatcher(object):
 
     def __init__(self):
         print("INIT")
-        self.last_stats = loadJSON(self.last_stats_file)
-        self.last_mods = loadJSON(self.last_mods_file)
+        self.last_stats = loadJSON(self.last_stats_file, self.last_stats)
+        self.last_mods = loadJSON(self.last_mods_file, self.last_mods)
 
     # s = scheduler(time, sleep); sched_delay = 3
     def do_something(self, sc = None):
