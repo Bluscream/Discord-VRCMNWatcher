@@ -13,6 +13,7 @@ SLEEP_S = 5 * 60
 
 class DiscordColor(object):
     Red = 0xFB0000
+    Green = 0x2ABD26
 
 def saveJSON(file, data, encoder = None):
     with open(file, 'w') as outfile:
@@ -90,7 +91,7 @@ class VRCMNWatcher(object):
             print(mod, nameExists)
             if not nameExists:
                 self.last_mods.append(mod)
-                if printMods: self.sendWH(mod.fullstr(), title="New mod found")
+                if printMods: self.sendWH(mod.fullstr(), title="New mod found", color=DiscordColor.Green)
 
     def parseMods(self, stats):
         mods = list()
