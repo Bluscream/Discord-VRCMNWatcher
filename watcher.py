@@ -6,10 +6,8 @@ from urllib import request
 from os import path
 from Mod import Mod
 from discord_webhooks import DiscordWebhooks
-from config import webhook_url, api_url
+from config import webhook_url, api_url, sleep_s
 print("START")
-
-SLEEP_S = 5 * 60
 
 class DiscordColor(object):
     Red = 0xFB0000
@@ -118,7 +116,7 @@ vrcnmwatcher = VRCMNWatcher()
 active = True
 while active:
     vrcnmwatcher.do_something()
-    sleep(SLEEP_S)
+    sleep(sleep_s)
 
 # s.enter(sched_delay, 1, do_something, (s,)); s.run()
 print("END")
