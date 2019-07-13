@@ -115,7 +115,8 @@ class VRCMNWatcher(object):
 vrcnmwatcher = VRCMNWatcher()
 active = True
 while active:
-    vrcnmwatcher.do_something()
+    try: vrcnmwatcher.do_something()
+    except: print("Failed to poll!")
     sleep(sleep_s)
 
 # s.enter(sched_delay, 1, do_something, (s,)); s.run()
