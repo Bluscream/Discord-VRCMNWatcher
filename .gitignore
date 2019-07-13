@@ -108,3 +108,4 @@ venv.bak/
 mods.json
 mods.cache.json
 stats.cache.json
+config.py
