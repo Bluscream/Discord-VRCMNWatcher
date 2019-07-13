@@ -88,7 +88,7 @@ class VRCMNWatcher(object):
         printMods = (len(self.last_mods) > 0)
         for mod in newMods:
             nameExists = any(mod.isSameName(d) for d in self.last_mods)
-            print(mod, nameExists)
+            # print(mod, nameExists)
             if not nameExists:
                 self.last_mods.append(mod)
                 if printMods: self.sendWH(mod.fullstr(), title="New mod found", color=DiscordColor.Green)
